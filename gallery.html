@@ -1,5 +1,105 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Arial;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Position the image container (needed to position the left and right arrows) */
+    .container {
+        position: relative;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+        cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 5px 0 0 5px;
+    }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* Container for image text */
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Six columns side by side */
+    .column {
+        float: left;
+        width: 16.66%;
+    }
+
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+        opacity: 0.6;
+    }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+</style>
 
 <head>
 
@@ -8,7 +108,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title>Dreams Givers</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,12 +124,6 @@
 
 <body>
 
-    <h1 class="site-heading text-center text-white d-none d-lg-block">
-        <span class="site-heading-upper text-primary mb-3">Gallery</span>
-        <span class="site-heading-lower">Dreams Givers</span>
-    </h1>
-
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
             <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
@@ -64,19 +158,85 @@
         </div>
     </nav>
 
-    <section class="page-section cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <div class="cta-inner text-center rounded">
-                        <h2 class="section-heading mb-5">
-                            <span class="section-heading-upper">Gallery Page</span>
-                        </h2>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 9</div>
+            <img src="img/bike4child.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 9</div>
+            <img src="img/gallery002.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 9</div>
+            <img src="img/gallery003.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 9</div>
+            <img src="img/gallery004.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 9</div>
+            <img src="img/gallery005.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 9</div>
+            <img src="img/bg001.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">7 / 9</div>
+            <img src="img/bg002.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">8 / 9</div>
+            <img src="img/bg003.jpg" style="width:100%">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">8 / 9</div>
+            <img src="img/school.jpg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="img/bike4child.jpg" style="width:100%" onclick="currentSlide(1)" alt="Her first bike!">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/gallery002.jpg" style="width:100%" onclick="currentSlide(2)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/gallery003.jpg" style="width:100%" onclick="currentSlide(3)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/gallery004.jpg" style="width:100%" onclick="currentSlide(4)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/gallery005.jpg" style="width:100%" onclick="currentSlide(5)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/bg001.jpg" style="width:100%" onclick="currentSlide(6)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/bg002.jpg" style="width:100%" onclick="currentSlide(7)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/bg003.jpg" style="width:100%" onclick="currentSlide(8)" alt="Insert Description">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="img/school.jpg" style="width:100%" onclick="currentSlide(9)" alt="The School">
             </div>
         </div>
-    </section>
+    </div>
 
     <footer class="footer text-faded text-center py-5">
         <div class="container">
@@ -84,9 +244,34 @@
         </div>
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }</script>
 
 </body>
 </html>
